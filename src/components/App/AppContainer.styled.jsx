@@ -1,13 +1,12 @@
 import styled from '@emotion/styled';
-import { flexCol } from './Base/Flex.styled';
-import { container } from './Base/Container.styled';
+import { container } from 'components/Base/Container.styled';
 import { space } from 'constants/theme';
 
-export const Container = styled.div`
-  ${flexCol}
+const AppContainer = styled.div`
   ${container}
   label: appContainer;
-  gap: ${space(10)};
   padding-top: ${space(10)};
   padding-bottom: ${space(10)};
 `;
+
+export default AppContainer;
