@@ -12,6 +12,7 @@ export const Button = styled.button(`
 	border-radius: 4px;
 	padding: 4px 8px;
 	font: inherit;
+	font-size: ${space(4)};
 	font-weight: 700;
 	line-height: 1em;
 	text-transform: capitalize;
@@ -23,6 +24,6 @@ export const Button = styled.button(`
 
 	&:active {
 		background-color: ${color.grey_300};
-		box-shadow: 0 0 ${space(2)} ${color.grey_400};
+		box-shadow: none;
 	}
 `);

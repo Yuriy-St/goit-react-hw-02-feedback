@@ -6,5 +6,6 @@ export const StyledSection = styled.section(`
 	margin-bottom: ${space(8)};
 	display: flex;
 	flex-direction: column;
-	row-gap: ${space(6)}
+	row-gap: ${space(6)};
+	font-size: ${space(5)};
 `);
