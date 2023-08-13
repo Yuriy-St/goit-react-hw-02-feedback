@@ -1,8 +1,8 @@
 import { Component } from 'react';
 import AppContainer from './AppContainer.styled';
-import { Subtitle } from 'components/Subtitle/Subtitle';
-import { FeedbackControls } from 'components/FeedbackControls/FeedbackControls';
-import { Line } from 'components/Line/Line';
+import FeedbackOptions from 'components/FeedbackOptions';
+import Section from 'components/Section';
+import Statistics from 'components/Statistics';
 
 export default class App extends Component {
   state = {
@@ -11,9 +11,9 @@ export default class App extends Component {
     bad: 0,
   };
 
-  riseValue = value =>
+  onLeaveFeedback = option =>
     this.setState(prevState => {
-      return { [value]: prevState[value] + 1 };
+      return { [option]: prevState[option] + 1 };
     });
 
   countTotalFeedback() {
@@ -27,19 +27,27 @@ export default class App extends Component {
   }
 
   render() {
-    const { state } = this;
+    const { good, neutral, bad } = this.state;
     const total = this.countTotalFeedback();
     const positivePercentage = this.countPositiveFeedbackPercentage();
     return (
       <AppContainer>
-        <Subtitle>Please leave feedback</Subtitle>
-        <FeedbackControls riseValue={this.riseValue} />
-        <Subtitle>Statistics</Subtitle>
-        <Line>Good: {state.good}</Line>
-        <Line>Neutral: {state.neutral}</Line>
-        <Line>Bad: {state.bad}</Line>
-        <Line>Total: {total}</Line>
-        <Line>Positive feedback: {positivePercentage}%</Line>
+        <Section title="Please leave feedback">
+          <FeedbackOptions
+            options={['good', 'neutral', 'bad']}
+            onLeaveFeedback={this.onLeaveFeedback}
+          />
+        </Section>
+
+        <Section title="Statistics">
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={total}
+            positivePercentage={positivePercentage}
+          />
+        </Section>
       </AppContainer>
     );
   }

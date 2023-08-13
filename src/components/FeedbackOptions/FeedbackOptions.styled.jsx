@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
 import { color, space } from 'constants/theme';
 
-export const StyledFeedbackControls = styled.div(`
+export const StyledFeedbackOptions = styled.div(`
+	label: FeedbackOptions;
 	display: flex;
 	column-gap: ${space(4)};
-	margin-bottom: ${space(6)}
 `);
 
 export const Button = styled.button(`
@@ -14,6 +14,7 @@ export const Button = styled.button(`
 	font: inherit;
 	font-weight: 700;
 	line-height: 1em;
+	text-transform: capitalize;
 
 	&:hover {
 		background-color: ${color.grey_200};
